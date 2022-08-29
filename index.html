@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/right-to-bracket-solid.svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>LOGIN FORM</title>
+</head>
+<body>
+    
+<div class="login-page">
+
+<div class="form" id="form">
+
+
+<!-- LOGIN FORM -->
+
+    <form class="login-form" id="login">
+
+<input type="text" placeholder="name" id="namelog">
+<input type="password" placeholder="password" id="passwordlog">
+<button type="button" onclick="loginf();">LOGIN</button>
+
+<h3 class="message">NOT REGISTERED? <a style="text-decoration: none;" href="#" onclick="f();">REGISTER</a></h3>
+
+    </form>    
+
+<!-- REGISTER FORM -->
+
+    <form class="register-form" id="register">
+
+<input type="text" placeholder="name" id="namereg">
+<input type="password" placeholder="password" id="passwordreg">
+<input type="email" placeholder="e-mail" id="mailreg">
+
+<button type="button" onclick="regisf();">CREATE</button>
+
+<h3 class="message">ALREADY REGISTERED? <a style="text-decoration: none;" href="#" onclick="g();">LOGIN</a></h3>
+
+</div>
+
+</div>
+
+<script>
+
+function f(){
+    var login=document.getElementById('login').style.display='none';
+    var register=document.getElementById('register').style.display='block';
+}
+
+function g(){
+    var login=document.getElementById('login').style.display='block';
+    var register=document.getElementById('register').style.display='none';
+}
+
+// function f(){
+
+// var register=document.getElementById('register');
+
+// var login=document.getElementById('login');
+
+
+
+
+// login.replaceChildren(register, login);
+
+// }
+
+async function loginf(){
+
+var namelog=document.getElementById('namelog').value;
+var passwordlog=document.getElementById('passwordlog').value;
+
+var source=await axios.get('https://softmagical.com/login.html?username='+namelog+'&password='+passwordlog);
+
+console.log(source);
+if(source==0){
+    alert('please try again!');
+}
+else{
+    window.location.href='https://github.com/Kamran-Mustafayev';
+}
+}
+
+async function regisf(){
+
+var namereg=document.getElementById('namereg').value;
+var passwordreg=document.getElementById('passwordreg').value;
+
+var sourcereg=await axios.get('https://softmagical.com/reg1.html?username='+namereg+'&password='+passwordreg+'&email='+mailreg);
+
+alert('GOOD LUCK!');
+
+}
+
+</script>
+
+</body>
+</html>
